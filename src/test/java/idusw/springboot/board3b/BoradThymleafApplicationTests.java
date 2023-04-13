@@ -1,4 +1,4 @@
-package idusw.springboot.boradthymleaf;
+package idusw.springboot.board3b;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

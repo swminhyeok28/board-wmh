@@ -11,8 +11,8 @@
 
     <title>SB Admin 2 - Buttons</title>
 
-    <div th:replace="~{/sb-admin-2/title-header :: top}"></div>
-
+    <!-- Custom fonts for this template-->
+    <div th:replace="~{/sb-admin-2/replace-fragment :: top}"></div>
 </head>
 
 <body id="page-top">
@@ -21,7 +21,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div th:replace="~{/sb-admin-2/title-header :: sidebar}"></div>
+        <div th:replace="~{/sb-admin-2/replace-fragment :: sidebar}"></div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -462,7 +462,7 @@
         </div>
     </div>
 
-    <div th:replace="~{/sb-admin-2/title-header :: bottom}"></div>
+    <div th:replace="~{/sb-admin-2/replace-fragment :: bottom}"></div>
 
 </body>
 

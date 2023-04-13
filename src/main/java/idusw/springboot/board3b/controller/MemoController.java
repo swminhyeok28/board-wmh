@@ -1,21 +1,21 @@
-package idusw.springboot.boradthymleaf.controller;
+package idusw.springboot.board3b.controller;
 
-import idusw.springboot.boradthymleaf.domain.Memo;
-import idusw.springboot.boradthymleaf.service.MemoService;
+import idusw.springboot.board3b.domain.Memo;
+import idusw.springboot.board3b.service.MemoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-// @RequestMapping("/api")
+@RequestMapping("/memo")
 public class MemoController {
     // 생성자 주입 (Constructor DI)
     MemoService memoService;
-
     public MemoController(MemoService memoService) {
         this.memoService = memoService;
     }
@@ -24,25 +24,24 @@ public class MemoController {
     public String initialize(Model model) {
         List<Memo> result = new ArrayList<>();
         result = memoService.initialize();
-        model.addAttribute("attr", result);
-        return "list";
+        return "redirect:/memo";
     }
 
-    @GetMapping("/memo")
+    @GetMapping
     public String getList(Model model) {
         List<Memo> result = new ArrayList<>();
         result = memoService.readList(); // 여기를 수정함
         model.addAttribute("attr", result);
-        return "list";
+        return "/memo/list";
     }
 
-    @GetMapping("/memo/{mno}")
+    @GetMapping("/{mno}")
     public String getList(@PathVariable("mno") Long mno, Model model) {
         Memo result = new Memo();
         Memo m = new Memo();
         m.setMno(mno);
         result = memoService.read(m); // 여기를 수정함
         model.addAttribute("attr", result);
-        return "one";
+        return "/memo/one";
     }
 }

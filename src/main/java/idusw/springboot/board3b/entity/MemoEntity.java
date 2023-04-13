@@ -1,4 +1,4 @@
-package idusw.springboot.boradthymleaf.entity;
+package idusw.springboot.board3b.entity;
 
 
 import jakarta.persistence.*;
