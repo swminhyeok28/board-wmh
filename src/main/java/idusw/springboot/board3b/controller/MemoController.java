@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping("/memo")
+@RequestMapping("/memos")
 public class MemoController {
     // 생성자 주입 (Constructor DI)
     MemoService memoService;
@@ -24,7 +24,7 @@ public class MemoController {
     public String initialize(Model model) {
         List<Memo> result = new ArrayList<>();
         result = memoService.initialize();
-        return "redirect:/memo";
+        return "redirect:/memos";
     }
 
     @GetMapping
@@ -32,7 +32,7 @@ public class MemoController {
         List<Memo> result = new ArrayList<>();
         result = memoService.readList(); // 여기를 수정함
         model.addAttribute("attr", result);
-        return "/memo/list";
+        return "/memos/list";
     }
 
     @GetMapping("/{mno}")
@@ -42,6 +42,6 @@ public class MemoController {
         m.setMno(mno);
         result = memoService.read(m); // 여기를 수정함
         model.addAttribute("attr", result);
-        return "/memo/one";
+        return "/memos/one";
     }
 }

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-@Service(value="Impl") // @Service : stereo type, Spring Framework에게 컴포넌트임을 알려줌
+@Service// @Service : stereo type, Spring Framework에게 컴포넌트임을 알려줌
 public class MemoServiceImpl implements MemoService {
     MemoRepository memoRepository;
     public MemoServiceImpl(MemoRepository memoRepository) { // 생성자 주입
