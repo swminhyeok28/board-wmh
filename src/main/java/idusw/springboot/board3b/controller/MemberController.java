@@ -2,7 +2,6 @@ package idusw.springboot.board3b.controller;
 
 import idusw.springboot.board3b.domain.Member;
 import idusw.springboot.board3b.service.MemberService;
-import idusw.springboot.board3b.service.MemoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
