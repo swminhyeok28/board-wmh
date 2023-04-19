@@ -1,7 +1,5 @@
-package idusw.springboot.board3b.controller;
+package idusw.springboot3.controller;
 
-import idusw.springboot.board3b.service.MemoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +15,4 @@ public class HomeController {
     public String goHome() {
         return "/main/index";
     }
-    /*
-    @GetMapping("/buttons")
-    public String goButtons() {
-        return "/sb-admin-2/buttons";
-    }
-    @GetMapping("/cards")
-    public String goCards() {
-        return "/sb-admin-2/cards";
-    }
-     */
 }

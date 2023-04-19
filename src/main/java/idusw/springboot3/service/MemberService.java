@@ -1,6 +1,6 @@
-package idusw.springboot.board3b.service;
+package idusw.springboot3.service;
 
-import idusw.springboot.board3b.domain.Member;
+import idusw.springboot3.domain.Member;
 
 import java.util.List;
 

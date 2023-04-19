@@ -1,4 +1,4 @@
-package idusw.springboot.board3b.domain;
+package idusw.springboot3.domain;
 
 import lombok.*;
 

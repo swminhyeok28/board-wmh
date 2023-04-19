@@ -1,4 +1,4 @@
-package idusw.springboot.board3b;
+package idusw.springboot3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

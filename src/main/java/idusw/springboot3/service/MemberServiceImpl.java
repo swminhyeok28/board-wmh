@@ -1,8 +1,8 @@
-package idusw.springboot.board3b.service;
+package idusw.springboot3.service;
 
-import idusw.springboot.board3b.domain.Member;
-import idusw.springboot.board3b.entity.MemberEntity;
-import idusw.springboot.board3b.repository.MemberRepository;
+import idusw.springboot3.domain.Member;
+import idusw.springboot3.entity.MemberEntity;
+import idusw.springboot3.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
