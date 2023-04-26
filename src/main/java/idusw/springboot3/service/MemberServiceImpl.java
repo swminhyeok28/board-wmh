@@ -1,7 +1,9 @@
 package idusw.springboot3.service;
 
 import idusw.springboot3.domain.Member;
+import idusw.springboot3.domain.Memo;
 import idusw.springboot3.entity.MemberEntity;
+import idusw.springboot3.entity.MemoEntity;
 import idusw.springboot3.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +34,13 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Member read(Member m) {
-        return null;
+        MemberEntity e = memberRepository.getById(m.getSeq()); // JpaRepository 구현체의 메소드
+        Member result = new Member(); // DTO (Data Transfer Object) : Controller - Service or Controller - View
+        System.out.println(e);
+        result.setSeq(e.getSeq());
+        result.setEmail(e.getEmail());
+        result.setName(e.getName());
+        return result;
     }
 
     @Override
@@ -49,5 +57,19 @@ public class MemberServiceImpl implements MemberService {
     public int delete(Member m) {
         return 0;
     } // 구현체
+
+    @Override
+    public Member login(Member m) {
+        MemberEntity e = memberRepository.getByEmailPw(m.getEmail(), m.getPw()); // JpaRepository 구현체의 메소드
+        System.out.println("login : " + e);
+        Member result = null; // DTO (Data Transfer Object) : Controller - Service or Controller - View
+        if(e != null) {
+            result = new Member();
+            result.setSeq(e.getSeq());
+            result.setEmail(e.getEmail());
+            result.setName(e.getName());
+        }
+        return result;
+    }
 
 }
