@@ -44,4 +44,5 @@ public class MemoController {
         model.addAttribute("attr", result);
         return "/memos/one";
     }
+
 }

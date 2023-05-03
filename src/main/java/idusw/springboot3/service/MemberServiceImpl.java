@@ -1,12 +1,11 @@
 package idusw.springboot3.service;
 
 import idusw.springboot3.domain.Member;
-import idusw.springboot3.domain.Memo;
 import idusw.springboot3.entity.MemberEntity;
-import idusw.springboot3.entity.MemoEntity;
 import idusw.springboot3.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -45,18 +44,47 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public List<Member> readList() {
-        return null;
+        List<MemberEntity> entities = new ArrayList<>();
+        List<Member> members = null;
+        if((entities = memberRepository.findAll()) != null) {
+            members = new ArrayList<>();
+            for(MemberEntity e : entities) {
+                Member m = Member.builder()
+                        .seq(e.getSeq())
+                        .email(e.getEmail())
+                        .name(e.getName())
+                        .pw(e.getPw())
+                        .regDate(e.getRegDate())
+                        .modDate(e.getModDate())
+                        .build();
+                members.add(m);
+            }
+        }
+        return members;
     }
 
     @Override
     public int update(Member m) {
-        return 0;
+        MemberEntity entity = MemberEntity.builder()
+                .seq(m.getSeq())
+                .email(m.getEmail())
+                .name(m.getName())
+                .pw(m.getPw())
+                .build();
+        if(memberRepository.save(entity) != null) // 저장 성공
+            return 1;
+        else
+            return 0;
     }
 
     @Override
     public int delete(Member m) {
-        return 0;
-    } // 구현체
+        MemberEntity entity = MemberEntity.builder()
+                .seq(m.getSeq())
+                .build();
+        memberRepository.deleteById(entity.getSeq());
+        return 1;
+    }
 
     @Override
     public Member login(Member m) {
